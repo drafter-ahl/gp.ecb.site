@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empire Fashion | Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="logo">Empire Fashion</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+  </nav>
+</header>
+
+<section class="section">
+  <h2>Shop Empire Fashion</h2>
+
+  <!-- Filters -->
+  <div class="filters">
+    <label>
+      Category:
+      <select id="filter-gender">
+        <option value="all">All</option>
+        <option value="men">Men</option>
+        <option value="women">Women</option>
+      </select>
+    </label>
+
+    <label>
+      Style:
+      <select id="filter-style">
+        <option value="all">All</option>
+        <option value="goth">Goth / Darkwear</option>
+        <option value="punk">Punk & Grunge</option>
+        <option value="indie">Indie Streetwear</option>
+        <option value="avant-garde">Avant-Garde</option>
+        <option value="y2k">Y2K Alt</option>
+        <option value="sustainable">Sustainable</option>
+      </select>
+    </label>
+
+    <label>
+      Max Price:
+      <input type="number" id="filter-price" placeholder="e.g. 100">
+    </label>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="grid" id="product-grid">
+    <!-- JS will populate products -->
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Empire Fashion</p>
+  <p class="disclaimer">
+    Some links are affiliate links. We may earn a commission at no extra cost to you.
+  </p>
+</footer>
+
+<script src="shop.js"></script>
+</body>
+</html>
