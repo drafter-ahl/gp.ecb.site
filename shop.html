@@ -22,7 +22,7 @@
   <!-- Filters -->
   <div class="filters">
     <label>
-      Category:
+      Gender:
       <select id="filter-gender">
         <option value="all">All</option>
         <option value="men">Men</option>
@@ -31,9 +31,8 @@
     </label>
 
     <label>
-      Style:
-      <select id="filter-style">
-        <option value="all">All</option>
+      Styles (multi-select):
+      <select id="filter-style" multiple>
         <option value="goth">Goth / Darkwear</option>
         <option value="punk">Punk & Grunge</option>
         <option value="indie">Indie Streetwear</option>
@@ -46,6 +45,15 @@
     <label>
       Max Price:
       <input type="number" id="filter-price" placeholder="e.g. 100">
+    </label>
+
+    <label>
+      Sort by Price:
+      <select id="sort-price">
+        <option value="none">None</option>
+        <option value="low">Low → High</option>
+        <option value="high">High → Low</option>
+      </select>
     </label>
   </div>
 
@@ -63,5 +71,6 @@
 </footer>
 
 <script src="shop.js"></script>
+<script src="builder.js"></script>
 </body>
 </html>

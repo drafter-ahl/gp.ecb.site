@@ -157,3 +157,23 @@ footer {
 .grid .card a.cta:hover {
   background: #ccc;
 }
+
+/* Product images & add to builder button */
+.grid .card img {
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.grid .card button.add-builder {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 6px 12px;
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+  cursor: pointer;
+}
+
+.grid .card button.add-builder:hover {
+  background: #333;
+}
