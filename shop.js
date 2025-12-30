@@ -1,4 +1,29 @@
-// Sample products with images and affiliate URLs
+const urlParams = new URLSearchParams(window.location.search);
+
+// Read URL query params
+const selectedStyles = urlParams.get('styles') ? urlParams.get('styles').split(',') : [];
+const selectedGender = urlParams.get('gender') || 'all';
+const initialMaxPrice = urlParams.get('maxPrice') || '';
+const initialSort = urlParams.get('sort') || 'none';
+
+// Grab filter DOM elements
+const filterGender = document.getElementById('filter-gender');
+const filterStyle = document.getElementById('filter-style');
+const filterPrice = document.getElementById('filter-price');
+const sortPrice = document.getElementById('sort-price');
+
+filterGender.value = selectedGender;
+filterPrice.value = initialMaxPrice;
+sortPrice.value = initialSort;
+
+// Set initial style selections
+Array.from(filterStyle.options).forEach(option => {
+  if(selectedStyles.includes(option.value)) {
+    option.selected = true;
+  }
+});
+
+// Sample products
 const products = [
   { name: "Black Mesh Top", price: 50, gender: "women", style: "goth", img: "https://via.placeholder.com/150", url: "#" },
   { name: "Cargo Pants", price: 70, gender: "men", style: "punk", img: "https://via.placeholder.com/150", url: "#" },
@@ -11,10 +36,6 @@ const products = [
 ];
 
 const grid = document.getElementById("product-grid");
-const filterGender = document.getElementById("filter-gender");
-const filterStyle = document.getElementById("filter-style");
-const filterPrice = document.getElementById("filter-price");
-const sortPrice = document.getElementById("sort-price");
 
 function renderProducts() {
   const gender = filterGender.value;
@@ -28,12 +49,8 @@ function renderProducts() {
     return genderMatch && styleMatch && priceMatch;
   });
 
-  // Sort by price if selected
-  if (sortPrice.value === "low") {
-    filtered.sort((a, b) => a.price - b.price);
-  } else if (sortPrice.value === "high") {
-    filtered.sort((a, b) => b.price - a.price);
-  }
+  if (sortPrice.value === "low") filtered.sort((a, b) => a.price - b.price);
+  else if (sortPrice.value === "high") filtered.sort((a, b) => b.price - a.price);
 
   grid.innerHTML = "";
   if (filtered.length === 0) {
@@ -57,26 +74,21 @@ function renderProducts() {
   });
 }
 
-// Event listeners
-filterGender.addEventListener("change", renderProducts);
-filterStyle.addEventListener("change", renderProducts);
-filterPrice.addEventListener("input", renderProducts);
-sortPrice.addEventListener("change", renderProducts);
+// Update URL without reloading when filters change
+function updateURLParams() {
+  const params = new URLSearchParams();
+  const stylesSelected = Array.from(filterStyle.selectedOptions).map(o => o.value);
+  if (filterGender.value !== "all") params.set('gender', filterGender.value);
+  if (stylesSelected.length) params.set('styles', stylesSelected.join(','));
+  if (filterPrice.value) params.set('maxPrice', filterPrice.value);
+  if (sortPrice.value !== "none") params.set('sort', sortPrice.value);
+  history.replaceState(null, '', '?' + params.toString());
+}
+
+filterGender.addEventListener("change", () => { renderProducts(); updateURLParams(); });
+filterStyle.addEventListener("change", () => { renderProducts(); updateURLParams(); });
+filterPrice.addEventListener("input", () => { renderProducts(); updateURLParams(); });
+sortPrice.addEventListener("change", () => { renderProducts(); updateURLParams(); });
 
 // Initial render
 renderProducts();
-
-// Connect shop items to outfit builder
-function addToBuilder(itemName) {
-  // Decide category based on name or style for demo
-  let category = "Accessory";
-  if (itemName.toLowerCase().includes("top") || itemName.toLowerCase().includes("hoodie")) category = "Top";
-  else if (itemName.toLowerCase().includes("pants") || itemName.toLowerCase().includes("skirt")) category = "Bottom";
-  else if (itemName.toLowerCase().includes("boots")) category = "Shoes";
-
-  // Call existing builder function from builder.js
-  if (window.addItem) {
-    window.addItem(category, itemName);
-    alert(`${itemName} added to your outfit builder!`);
-  }
-}
