@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO -->
+  <meta charset="UTF-8" />
+  <title>NOIR ARCHIVE | Curated Alternative Fashion & Outfit Builder</title>
+  <meta name="description" content="Curated alternative fashion for men and women. Build outfits, explore underground designers, and shop alternative style across the web." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yourusername.github.io/alt-style-curator/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="NOIR ARCHIVE — Alternative Fashion Curator" />
+  <meta property="og:description" content="Build and shop alternative outfits from independent brands and marketplaces." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/alt-style-curator/" />
+  <meta property="og:image" content="https://yourusername.github.io/alt-style-curator/preview.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NOIR ARCHIVE — Alternative Fashion" />
+  <meta name="twitter:description" content="Curated alt fashion & outfit builder." />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Schema.org: Website + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "NOIR ARCHIVE",
+    "url": "https://yourusername.github.io/alt-style-curator/",
+    "description": "Curated alternative fashion and outfit building platform.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "NOIR ARCHIVE"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="logo">NOIR ARCHIVE</div>
+  <nav>
+    <a href="#styles">Styles</a>
+    <a href="#builder">Outfit Builder</a>
+    <a href="#designers">Designers</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Alternative Fashion, Curated</h1>
+  <p>Build outfits. Discover underground designers. Shop the look.</p>
+  <a class="cta" href="#builder">Build an Outfit</a>
+</section>
+
+<!-- STYLE UNIVERSES -->
+<section class="section" id="styles">
+  <h2>Style Universes</h2>
+  <div class="grid">
+    <div class="card">Goth / Darkwear</div>
+    <div class="card">Punk & Grunge</div>
+    <div class="card">Indie Streetwear</div>
+    <div class="card">Avant-Garde</div>
+    <div class="card">Y2K Alt</div>
+    <div class="card">Sustainable Underground</div>
+  </div>
+</section>
+
+<!-- OUTFIT BUILDER -->
+<section class="builder" id="builder">
+  <h2>Outfit Builder</h2>
+  <p class="muted">Click items to build a look. Affiliate links will open on selection.</p>
+
+  <div class="builder-layout">
+    <!-- Canvas -->
+    <div class="canvas">
+      <div id="canvas-top" class="slot">Top</div>
+      <div id="canvas-bottom" class="slot">Bottom</div>
+      <div id="canvas-shoes" class="slot">Shoes</div>
+      <div id="canvas-accessory" class="slot">Accessory</div>
+    </div>
+
+    <!-- Item Picker -->
+    <div class="picker">
+      <h3>Items</h3>
+      <div class="items">
+        <button onclick="addItem('Top', 'Black Mesh Top')">Black Mesh Top</button>
+        <button onclick="addItem('Bottom', 'Cargo Pants')">Cargo Pants</button>
+        <button onclick="addItem('Shoes', 'Platform Boots')">Platform Boots</button>
+        <button onclick="addItem('Accessory', 'Chain Necklace')">Chain Necklace</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGNERS -->
+<section class="section" id="designers">
+  <h2>Featured Marketplaces</h2>
+  <ul class="links">
+    <li><a href="#">SSENSE</a></li>
+    <li><a href="#">Wolf & Badger</a></li>
+    <li><a href="#">ASOS Marketplace</a></li>
+    <li><a href="#">Depop</a></li>
+    <li><a href="#">Not Just A Label</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2025 NOIR ARCHIVE</p>
+  <p class="disclaimer">
+    Some links are affiliate links. We may earn a commission at no extra cost to you.
+  </p>
+</footer>
+
+<script src="builder.js"></script>
+
+</body>
+</html>
